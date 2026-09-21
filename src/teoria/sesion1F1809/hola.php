@@ -10,13 +10,7 @@ $curso = "DAW2";
 
 
 
-echo ("<img src="./images/foto.webp"> 
-        <h1>" . $nombre . "</h1>   
-        <small>" . $edad . "</small>
-
-        
-        <p id="descripcion">". $descripcion . "; ?> </p>
-        <p>" . $centro."/".$curso. "</p>");
+echo (" <h1>" . $nombre . "</h1>   <small>" . $edad . "</small>");
 
 
 
