@@ -10,17 +10,13 @@ $curso = "DAW2";
 
 
 
-echo ("<div id="carta">
-        <div id="fotoContainer">
-            <img src="./images/foto.webp">
-        </div>
-        <h1>" . $nombre. "</h1>   
+echo ("<img src="./images/foto.webp"> 
+        <h1>" . $nombre . "</h1>   
         <small>" . $edad . "</small>
 
         
         <p id="descripcion">". $descripcion . "; ?> </p>
-        <p>" . $centro."/".$curso. "</p>
-    </div>");
+        <p>" . $centro."/".$curso. "</p>");
 
 
 
