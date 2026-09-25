@@ -1,0 +1,28 @@
+
+
+*{
+    font-family: sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+main{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+    align-content: center;
+    justify-content: center;
+}
+
+div{
+    height: 45px;
+    width: 130px;
+    text-align: center;
+    align-content: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
