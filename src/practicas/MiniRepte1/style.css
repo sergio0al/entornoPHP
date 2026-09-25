@@ -4,48 +4,66 @@
     font-family: sans-serif;
 }
 
-
 section{
     width: 650px;
-    height: 390px;
     overflow: hidden;
     border: 1px solid gray;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 8px; 
+    margin: 20px;
 }
+
+.ganador {
+    font-weight: bold;
+}
+
 
 #title{
     width: 100%;
-    height: 64px;
-    font-size: 20px;
-    font-weight: 300;
-    padding: 0 15px;
+    height: 52px;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 0 16px;
     box-sizing: border-box;
-    background-color: black;
+    background-color: #202124;
     color: white;
     align-content: center;
 }
 
 #partidosContainer{
     display: grid; 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
+    border-bottom: 1px solid gray;
 }
 
 #partidosContainer .partido{
+    height: 120px;
+    display: flex;
     border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
 }
 
+
+
 #partidosContainer .partido .info{
-    width: 215px;
+    flex: 1;
     display: flex;
     justify-content: space-between;
-    border-right: 1px solid gray;
+    align-items: center;
+    padding: 16px;
+    box-sizing: border-box;
 }
+
+
+
 
 #partidosContainer .partido .equipos{
     display: grid; 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
+    gap: 12px;
+    align-items: center;
     color: gray;
+    font-size: 14px;
 }
 
 #partidosContainer .partido .equipos img{
@@ -53,3 +71,28 @@ section{
     height: 24px;
 }
 
+#partidosContainer .partido .resultados{
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+    justify-content: center;
+    text-align: right;
+    color: gray;
+    font-size: 13px;
+}
+
+
+
+
+
+
+.footer {
+    height: 30px;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: gray;
+}
