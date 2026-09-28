@@ -28,7 +28,7 @@ $projectesJuntos = [$projectes1, $projectes2, $projectes3, $projectes4, $project
 <body>
     <header>
         <div>
-            <i class="fa-solid fa-layer-group"></i>
+            <i id="logo" class="fa-solid fa-layer-group"></i>
             <h1>Panell intern de projectes</h1>
         </div>
         <nav>
@@ -43,31 +43,72 @@ $projectesJuntos = [$projectes1, $projectes2, $projectes3, $projectes4, $project
 
     <main>
         
+        <section id="sectionContador">
+            <?php
+            
+            $projectesCont = 0;
+            $prioritatAltaCont = 0;
+            $horasCont = 0;
+
+            foreach($projectesJuntos as $projecte){
+                $projectesCont++;
+                $horasCont += $projecte[3];
+                if($projecte[5] === "Alta"){
+                    $prioritatAltaCont++;
+                }
+            }
+            ?>
+
+            <div id="projectesCont" class="cart">
+                <i class="fa-regular fa-folder-open icon"></i>
+                <div>
+                    <h4><?= $projectesCont ?></h4>
+                    <p>Projectes</p>
+                </div>
+            </div>
+            <div id="altaCont" class="cart">
+                <i class="fa-solid fa-triangle-exclamation icon"></i>
+                <div>
+                    <h4><?= $prioritatAltaCont ?></h4>
+                    <p>Prioritat alta</p>
+                </div>
+            </div>
+            <div id="horesCont" class="cart">
+                <i class="fa-regular fa-clock icon"></i>
+                <div>
+                    <h4><?= $horasCont ?></h4>
+                    <p>Prioritat alta</p>
+                </div>
+            </div>
+            
+        </section>
+
+
         <section id="projectesSection">
-        <div id="info">
-            <h2>Projectes actius</h2>
-            <p>Llista de projectes del curs. Cada targeta mostra la informació principal i las seva prioritat.</p>
-        </div>
-        <?php
-        $id = 0;
-        foreach($projectesJuntos as $projecte):
-        $id++;?>
-        <div class="projecte">
-            <div>
-                <p class="id">#<?= $id ?></p>
-                <p class="nom"><?= $projecte[0] ?></p>
-                <p class="prioritat <?=$projecte[5]?>"><?=$projecte[5]?></p>
+            <div id="info">
+                <h2>Projectes actius</h2>
+                <p>Llista de projectes del curs. Cada targeta mostra la informació principal i las seva prioritat.</p>
             </div>
-            <div>
-                <i class="<?= $projecte[4] ?> icon"></i>
-                <p>Tipus: <?= $projecte[1] ?></p>
+            <?php
+            $id = 0;
+            foreach($projectesJuntos as $projecte):
+            $id++;?>
+            <div class="projecte">
+                <div>
+                    <p class="id">#<?= $id ?></p>
+                    <p class="nom"><?= $projecte[0] ?></p>
+                    <p class="prioritat <?=$projecte[5]?>"><?=$projecte[5]?></p>
+                </div>
+                <div>
+                    <i class="<?= $projecte[4] ?> icon"></i>
+                    <p>Tipus: <?= $projecte[1] ?></p>
+                </div>
+                <div>
+                    <p><i class="fa-solid fa-clock"></i> <?=$projecte[3]?>h</p>
+                    <p><i class="fa-solid fa-signal <?= $projecte[5] ?>"></i> Prioritat <?= $projecte[2] ?>/10<p>
+                </div>
             </div>
-            <div>
-                <p><i class="fa-solid fa-clock"></i> <?=$projecte[3]?>h</p>
-                <p><i class="fa-solid fa-signal <?= $projecte[5] ?>"></i> Prioritat <?= $projecte[2] ?>/10<p>
-            </div>
-        </div>
-        <?php endforeach;?>
+            <?php endforeach;?>
         </section>
     </main>
 </body>
