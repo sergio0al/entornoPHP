@@ -1,0 +1,160 @@
+*{
+
+    font-family: fon, Helvetica, sans-serif;
+
+}
+
+
+/* Header */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 330px;
+    align-items: center;
+}
+
+header div{
+    display: flex;
+    align-items: center;
+}
+
+
+
+header nav{
+    display: flex;
+    gap: 30px;
+}
+
+header button{
+    color: gray;
+    background-color: white;
+    border: none;
+    display: flex;
+    gap: 8px;
+    font-size: 17px;
+    padding: 15px 13px;
+    cursor: pointer;
+}
+
+header .select{
+    background-color: #e9f4fe;
+    color: #0061de;
+    border-radius: 15px;
+}
+
+
+
+
+#projectesSection{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+/* Info */
+
+#projectesSection #info p{
+    max-width: 400px;
+    color: gray;
+    font-weight: 400;
+}
+
+#projectesSection #info h2{
+    font-weight: bold;
+}
+
+
+
+/* Cartas */
+
+.projecte{
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 20px;
+    justify-content: center;
+}
+
+.projecte div{
+    display: flex;
+    gap: 10px ;
+    align-items: center;
+}
+
+
+
+.projecte{
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 20px;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.projecte .id{
+    border-radius: 5px;
+    text-align: center;
+    align-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(221, 219, 219);
+    color: gray;
+    font-weight: bold;
+}
+
+
+.projecte .nom{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.projecte .icon{
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 8px;
+    align-items: center;
+    background-color: #e7f3ff;
+    border-radius: 5px;
+    color: #0d67f1;
+}
+
+.projecte .prioritat{
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+.projecte .Alta{
+    background-color: #ffdadc;
+    color: #b72a35;
+}
+
+.projecte .Mitja{
+    background-color: #ffefb9;
+    color: #c2683b;
+}
+
+.projecte .Bixa{
+    background-color: #d0f9e1;
+    color: #30815d;
+}
+
+
+
