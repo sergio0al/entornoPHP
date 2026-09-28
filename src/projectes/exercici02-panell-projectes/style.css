@@ -60,7 +60,7 @@ header .select{
 #sectionContador{
     display: flex;
     justify-content: space-between;
-    margin: 0 330px;
+    margin: 60px 330px;
 }
 
 #sectionContador .cart{
@@ -70,16 +70,60 @@ header .select{
     box-sizing: border-box;
     padding: 0px 40px;
     gap: 30px;
-    background-color: gray;
     border-radius: 20px;
     align-items: center;
+    align-content: center;
 }
 
- .icon{
-    width: 30px;
-    height: 30px;
-    padding: 20px;
-    background-color: #0d67f1;
+
+#sectionContador .cart h4{
+    font-size: 33px;
+    margin: 0px;
+}
+
+#sectionContador .cart p{
+    font-size: 18px;
+    color: rgb(190, 189, 189);
+    margin: 0px;
+}
+
+
+#projectesCont{
+    background-color: #eaf3fd;
+}
+
+#projectesCont .icon{
+    background-color: #d5e9fc;
+    color: #005bda;
+}
+
+
+
+#altaCont{
+    background-color: #fdeff2;
+}
+
+#altaCont .icon{
+    background-color: #fdd5d8;
+    color: #ec0d14;
+}
+
+
+
+#horesCont{
+    background-color: #edfaf3;
+}
+
+#horesCont .icon{
+    background-color: #d1f5e1;
+    color: #015927;
+}
+
+
+.icon{
+    width: 40px;
+    height: 40px;
+    padding: 11px;
     font-size: 20px;
     border-radius: 15px;
 }   
