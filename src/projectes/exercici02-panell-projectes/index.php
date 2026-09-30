@@ -11,6 +11,7 @@ $projectes8 = ["Optimització d'imatges", "Qualitat", 6, 3, "fa-solid fa-bag-sho
 
 $projectesJuntos = [$projectes1, $projectes2, $projectes3, $projectes4, $projectes5, $projectes6, $projectes7, $projectes8];
 
+$tecnologies = ["HTML", "CSS", "PHP", "Docker", "WordPress", "Shopify"]
 
 ?>
 
@@ -49,6 +50,8 @@ $projectesJuntos = [$projectes1, $projectes2, $projectes3, $projectes4, $project
             $projectesCont = 0;
             $prioritatAltaCont = 0;
             $horasCont = 0;
+            $webCont = 0;
+            $tecnologiesCont = 0;
 
             foreach($projectesJuntos as $projecte){
                 $projectesCont++;
@@ -56,7 +59,15 @@ $projectesJuntos = [$projectes1, $projectes2, $projectes3, $projectes4, $project
                 if($projecte[5] === "Alta"){
                     $prioritatAltaCont++;
                 }
+                if($projecte[1] === "Web"){
+                    $webCont++;
+                }
             }
+
+            foreach($tecnologies as $tecnologia){
+                $tecnologiesCont++;
+            }
+
             ?>
 
             <div id="projectesCont" class="cart">
@@ -77,7 +88,14 @@ $projectesJuntos = [$projectes1, $projectes2, $projectes3, $projectes4, $project
                 <i class="fa-regular fa-clock icon"></i>
                 <div>
                     <h4><?= $horasCont ?></h4>
-                    <p>Prioritat alta</p>
+                    <p>Hores</p>
+                </div>
+            </div>
+            <div id="teconlogiesCont" class="cart">
+                <i class="fa-solid fa-code icon"></i>
+                <div>
+                    <h4><?= $tecnologiesCont ?></h4>
+                    <p>Tecnologies</p>
                 </div>
             </div>
             
@@ -111,5 +129,59 @@ $projectesJuntos = [$projectes1, $projectes2, $projectes3, $projectes4, $project
             <?php endforeach;?>
         </section>
     </main>
+
+
+
+
+    <footer>
+        <section id="resumenProjectos">
+            <h3>Resum automàtic</h3>
+            <div class="contentResum">
+                <div class="cont">
+                    <i class="fa-regular fa-folder-open icon"></i>
+                    <div>
+                        <h4><?= $projectesCont ?></h4>
+                        <p>Projectes total</p>
+                    </div>
+                </div>
+                <div class="cont">
+                    <i class="fa-solid fa-triangle-exclamation icon"></i>
+                    <div>
+                        <h4><?= $prioritatAltaCont ?></h4>
+                        <p>Prioritat alta</p>
+                    </div>
+                </div>
+                <div class="cont">
+                    <i class="fa-regular fa-clock icon"></i>
+                    <div>
+                        <h4><?= $horasCont ?> h</h4>
+                        <p>Hores totals</p>
+                    </div>
+                </div>
+                <div class="cont">
+                    <i class="fa-solid fa-globe icon"></i>
+                    <div>
+                        <h4><?= $webCont ?></h4>
+                        <p>Projectes web</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="tecnologies">
+            <h3>Tecnologies</h3>
+            <div class="lista">
+                <?php 
+                
+                foreach($tecnologies as $tecnologia):?>
+                <p id="<?=$tecnologia?>" class="etiqueta"><?=$tecnologia?></p>
+                <?php endforeach?>
+            </div>
+        </section>
+    </footer>
+
+
+
 </body>
 </html>

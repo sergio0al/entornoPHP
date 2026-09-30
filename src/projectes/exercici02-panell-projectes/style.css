@@ -60,6 +60,7 @@ header .select{
 #sectionContador{
     display: flex;
     justify-content: space-between;
+    gap: 20px   ;
     margin: 60px 330px;
 }
 
@@ -117,6 +118,16 @@ header .select{
 #horesCont .icon{
     background-color: #d1f5e1;
     color: #015927;
+}
+
+
+#teconlogiesCont{
+    background-color: #f1eefe;
+}
+
+#teconlogiesCont .icon{
+    background-color: #ddd6fe;
+    color: #1701c3;
 }
 
 
@@ -242,3 +253,99 @@ header .select{
 
 
 
+/* FOOTER */
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 330px;
+    gap: 20px;
+}
+
+#resumenProjectos{
+    padding: 10px 27px;
+    border-radius: 20px ;
+    box-sizing: border-box;
+    background-color: #e9f2fc;
+}
+
+#resumenProjectos h4{
+    margin: 0 0 -10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#resumenProjectos p{
+   color: #7e7e7e;
+}
+
+#resumenProjectos .contentResum .icon{
+    color: #005bda;
+    background-color: #d5e9fc;
+    margin: 0 0 15px 0;
+}
+
+#resumenProjectos .contentResum{
+    display: flex;
+    gap:40px;
+}
+
+#resumenProjectos .contentResum .cont{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+}
+
+
+
+/* tecnologies */
+
+footer #tecnologies{
+    padding: 10px 27px;
+    border-radius: 20px ;
+    box-sizing: border-box;
+    background-color: #e9f2fc;
+    align-items: center;
+    align-content: center;
+}
+
+footer #tecnologies .lista{
+    display: flex;
+    gap: 10px;
+}
+
+
+footer #tecnologies .etiqueta{
+    padding: 8px;
+    border-radius: 10px;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+
+footer #tecnologies #HTML{
+    background-color: #e97d30;
+}
+
+footer #tecnologies #CSS{
+    background-color: #3881eb;
+}
+
+footer #tecnologies #PHP{
+    background-color: #7a65db;
+}
+
+footer #tecnologies #Docker{
+    background-color: #7a65db;
+}
+
+footer #tecnologies #WordPress{
+    background-color: #46546f;
+}
+
+footer #tecnologies #Shopify{
+    background-color: #44814d;
+}
