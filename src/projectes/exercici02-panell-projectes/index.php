@@ -13,9 +13,10 @@ $projectesJuntos = [$projectes1, $projectes2, $projectes3, $projectes4, $project
 
 $tecnologies = ["HTML", "CSS", "PHP", "Docker", "WordPress", "Shopify"]
 
+
 ?>
 
-
+ 
 
 <!DOCTYPE html>
 <html lang="en">
