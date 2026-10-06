@@ -8,56 +8,64 @@ $conceptes = [
         "tecnologia" => "PHP",
         "titulo" => "Variables",
         "descripcion" => "Serveixen per guardar informació que després podem utilitzar.",
-        "imagen" => "variables.png"
+        "imagen" => "variables.png",
+        "destacat" => true
     ],
     [
         "icono" => "fa-brands fa-php",
         "tecnologia" => "PHP",
         "titulo" => "If / else",
         "descripcion" => "Permet executar un codi o un altre segons una condició.",
-        "imagen" => "ifelse.png"
+        "imagen" => "ifelse.png",
+        "destacat" => true
     ],
     [
         "icono" => "fa-brands fa-js",
         "tecnologia" => "JavaScript",
         "titulo" => "Manipular el DOM",
         "descripcion" => "Permet modificar el contingut de la pàgina des de JavaScript.",
-        "imagen" => "manipuladorDOM.png"
+        "imagen" => "manipuladorDOM.png",
+        "destacat" => true
     ],
     [
         "icono" => "fa-brands fa-js",
         "tecnologia" => "JavaScript",
         "titulo" => "Array i forEach",
         "descripcion" => "Permet recórrer tots els elements d'un array.",
-        "imagen" => "array.png"
+        "imagen" => "array.png",
+        "destacat" => false
     ],
     [
         "icono" => "fa-brands fa-react",
         "tecnologia" => "React",
         "titulo" => "Components",
         "descripcion" => "Permeten dividir la interfície en peces reutilitzables.",
-        "imagen" => "components.png"
+        "imagen" => "components.png",
+        "destacat" => true
     ],
     [
         "icono" => "fa-brands fa-html5",
         "tecnologia" => "HTML",
         "titulo" => "Estructura HTML5",
         "descripcion" => "Utilitzem etiquetes semàntiques per organitzar el contingut.",
-        "imagen" => "html.png"
+        "imagen" => "html.png",
+        "destacat" => true
     ],
     [
         "icono" => "fa-brands fa-docker",
         "tecnologia" => "Docker",
         "titulo" => "Docker compose",
         "descripcion" => "Permet aixecar diversos serveis alhora (per exemple, una web i una base de dades).",
-        "imagen" => "docker.png"
+        "imagen" => "docker.png",
+        "destacat" => false
     ],
     [
         "icono" => "fa-solid fa-database",
         "tecnologia" => "BBDD",
         "titulo" => "Consultes SQL bàsiques",
         "descripcion" => "Permeten obtenir informació de la base de dades.",
-        "imagen" => "bbdd.png"
+        "imagen" => "bbdd.png",
+        "destacat" => true
     ]
 ];
 
@@ -153,6 +161,8 @@ foreach($conceptes as $c){
     </section>
 
     <section id="sectionResum">
+
+
         <div id="contadorDiv">
             <div>
                 <h2>Resum de concepetes</h2>
@@ -171,6 +181,7 @@ foreach($conceptes as $c){
                 <p><?= $contConceptes?></p>
             </div>
         </div>
+
         <div id="assignaturasDiv">
             <h2>Assignaturass</h2>
             <div>
@@ -179,14 +190,19 @@ foreach($conceptes as $c){
                 <?php endforeach?>
             </div>
         </div>
-        <div id="conceptesDiv">
-            <h2>Assignaturass</h2>
+        
+        <div id="destacadosDiv">
+            <h2>Conceptes destacats</h2>
             <div>
-                <?php foreach($tecnologia as $t):?>
-                <p class="<?=$t?>"><?=$t?></p>
+                <ul>
+                <?php foreach($conceptes as $c): if($c["destacat"] === true):?>
+                <li><i class="fa-solid fa-star icon"></i><?=$c["titulo"]?></li>
+                <?php endif?>
                 <?php endforeach?>
+                </ul>
             </div>
         </div>
+
     </section>
 </body>
 </html>
