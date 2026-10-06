@@ -62,7 +62,7 @@ header nav .select{
 
 #sectionFilter ul{
     display: flex;
-    gap: 20px;
+    gap: 10px;
     list-style: none;
 }
 
@@ -149,6 +149,11 @@ header nav .select{
     color: #41196f;
 }
 
+.Projectes{
+    background-color: #d2bcfc;
+    color: #41196f;
+}
+
 .BBDD{
     background-color: #ffbdbf;
     color: #8b0f1f;
@@ -188,4 +193,108 @@ header nav .select{
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+
+
+
+
+#sectionResum{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 30px 300px;
+}
+
+#sectionResum #contadorDiv{
+    display: flex;
+    list-style: none;
+    width: 500px;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#sectionResum #contadorDiv ul{
+    width: 300px;
+    box-sizing: border-box;
+    padding-right: 20px;
+    border-right: 1px solid black;
+    margin-top: 20px;
+}
+
+#sectionResum #contadorDiv ul li{
+    display: grid;
+    grid-template-columns: 15px 1fr 30px;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    padding: 3px 0;
+}
+
+#sectionResum #contadorDiv ul li p{
+    text-align: right;
+    font-weight: bold;
+}
+
+#sectionResum #contadorDiv .esfera{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+#sectionResum #contadorDiv div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#sectionResum #totalCont{
+    width: 100%;
+    flex: 1;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;     
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#sectionResum #totalCont h3{
+    font-size: 16px;
+    width: 80px;
+    color: rgb(173, 171, 171);
+}
+
+#sectionResum #totalCont p{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+
+#sectionResum #assignaturasDiv{
+    box-sizing: border-box;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#sectionResum #assignaturasDiv div{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+}
+
+#sectionResum #assignaturasDiv div p{
+    padding: 8px 10px;
+    border-radius: 12px;
+    text-align: center;
 }

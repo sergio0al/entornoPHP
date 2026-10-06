@@ -62,30 +62,33 @@ $conceptes = [
 ];
 
 
-$tecnologia = ["PHP", "JavaScript", "React", "HTML", "Docker", "BBDD", "Projectes"]
+$tecnologia = ["PHP", "JavaScript", "React", "HTML", "Docker", "BBDD", "Projectes"];
 
-
-
-$contTecnologias = 0;
+$contTecnologia = 0;
+$contConceptes = 0;
 $contPhp = 0;
 $contJavaScript = 0;
 $contReact = 0;
 $contHtml = 0;
 $contDocker = 0;
 $contBBDD = 0;
+$contProjectes = 0;
 
 
 foreach($conceptes as $c){
-    if($c == "PHP"){
-        $contPhp++,
-    }else if($c == "JavaScript"){
+    $contConceptes++;
+    if($c["tecnologia"] == "PHP"){
+        $contPhp++;
+    } else if($c["tecnologia"] == "JavaScript"){
         $contJavaScript++;
-    }else if($c == "React"){
+    } else if($c["tecnologia"] == "React"){
         $contReact++;
-    }else if($c == "HTML"){
+    } else if($c["tecnologia"] == "HTML"){
         $contHtml++;
-    }else if($c == "Docker"){
-
+    } else if($c["tecnologia"] == "Docker"){
+        $contDocker++;
+    } else if($c["tecnologia"] == "BBDD"){
+        $contBBDD++;
     }
 }
 
@@ -150,7 +153,40 @@ foreach($conceptes as $c){
     </section>
 
     <section id="sectionResum">
-
+        <div id="contadorDiv">
+            <div>
+                <h2>Resum de concepetes</h2>
+                <ul>
+                    <li><div class="esfera PHP"></div> PHP<p><?= $contPhp?></p></li>
+                    <li><div class="esfera JavaScript"></div> JavaScript<p><?= $contJavaScript?></p></li>
+                    <li><div class="esfera React"></div> React<p><?= $contReact?></p></li>
+                    <li><div class="esfera HTML"></div> HTML<p><?= $contHtml?></p></li>
+                    <li><div class="esfera Docker"></div> Docker<p><?= $contPhp?></p></li>
+                    <li><div class="esfera BBDD"></div> BBDD<p><?= $contBBDD?></p></li>
+                    <li><div class="esfera Docker"></div> Projectes<p><?= $contConceptes?></p></li>
+                </ul>
+            </div>
+            <div id="totalCont">
+                <h3>Total de Conceptes</h3>
+                <p><?= $contConceptes?></p>
+            </div>
+        </div>
+        <div id="assignaturasDiv">
+            <h2>Assignaturass</h2>
+            <div>
+                <?php foreach($tecnologia as $t):?>
+                <p class="<?=$t?>"><?=$t?></p>
+                <?php endforeach?>
+            </div>
+        </div>
+        <div id="conceptesDiv">
+            <h2>Assignaturass</h2>
+            <div>
+                <?php foreach($tecnologia as $t):?>
+                <p class="<?=$t?>"><?=$t?></p>
+                <?php endforeach?>
+            </div>
+        </div>
     </section>
 </body>
 </html>
