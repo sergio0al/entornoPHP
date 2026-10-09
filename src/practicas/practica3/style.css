@@ -1,0 +1,102 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#carteleraSection {
+    display: flex;
+}
+
+.cart{
+    width: 210px;
+    height: 315px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cart .img_Portada{
+    width: 210px;
+    height: 315px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.cart .img_Portada img{
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+
+
+
+.cart .info{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transition: all 300ms ease;
+}
+
+.cart .info:hover{
+    opacity: 1;
+    transition: all 300ms ease;
+}
+
+
+.cart .info h2{
+    color: #e0161d;
+    font-size: 17px;
+    max-width: 100%;
+}
+
+.cart .info .clasificacionText{
+    color: white;
+    font-weight: bold;
+}
+
+.cart .info .clasificacion{
+    color: yellow;
+    font-weight: 500;
+}
+
+.cart .info .genero{
+    color: rgb(212, 210, 210);
+    font-weight: 500;
+}
+
+.cart .info .horarisBtn{
+    width: 100%;
+    height: 32px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border: 2px solid white;
+    background-color: #e0161d;
+    cursor: pointer;
+}
+
+
+.cart .info div{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex: 1;
+}
+
+.cart .info div button{
+    width: 80px;
+    height: 30px;
+    box-sizing: border-box;
+    color: #e0161d;
+    border: 1px solid #e0161d;
+    background-color: black;
+    cursor: pointer;
+}
