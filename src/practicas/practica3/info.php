@@ -11,11 +11,24 @@ include("pelicules.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a9b5133090.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
 
+    <header>
+        <img src="images/ocine_logo.png">
+        <nav>
+            <ul>
+                <li>CARTELERA</li>
+                <li>BAR</li>
+                <li>FIDELITY<i class="fa-solid fa-angle-down"></i></li>
+                <li>SERVICIOS<i class="fa-solid fa-angle-down"></i></li>
+                <li>OTROS CINES</li>
+            </ul>
+        </nav>
+    </header>
 
     <section id="sectionInfo">
         <h2><?=$pelicules[$_GET["id"]]["nom"]?></h2>
