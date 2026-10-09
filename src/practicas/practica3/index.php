@@ -25,7 +25,7 @@
     <section id="carteleraSection">
 
 
-        <?php foreach($pelicules as $pelicula):?>
+        <?php foreach($pelicules as $id => $pelicula):?>
         <article class="cart">
             <div class="img_Portada">
                 <img src='<?=$pelicula["imatge"]?>'>
@@ -37,7 +37,7 @@
                 <p class="genero"><?=$pelicula["genere"]?></p>
                 <div>
                     <button>Trailer</button>
-                    <button>Info</button>
+                    <a href="info.php?id=<?=$id?>"><button>Info</button></a>
                 </div>
             </div>
         </article>

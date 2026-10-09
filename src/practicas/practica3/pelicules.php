@@ -4,7 +4,7 @@
         [
             "nom" => "Inception",
             "imatge" => "https://www.originalfilmart.com/cdn/shop/products/inception_2010_imax_original_film_art_5000x.jpg?v=1551890318",
-            "horaris" => "16:30, 19:15, 22:00",
+            "horaris" => ["19 nov" => ["19:15", "22:00"], "20 nov" => ["19:15", "22:00"]],
             "sinopsi" => "Un lladre que roba secrets corporatius a través de l'ús de la tecnologia de compartició de somnis rep la tasca inversa d'implantar una idea a la ment d'un director executiu.",
             "durada" => 148,
             "repartiment" => "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
@@ -15,7 +15,7 @@
         [
             "nom" => "Interstellar",
             "imatge" => "https://www.ecartelera.com/images/noticias/fotos/19400/19409/1.jpg",
-            "horaris" => "17:00, 20:30",
+            "horaris" => ["19 nov" => ["17:00", "20:30"], "21 nov" => ["16:30", "19:45"], "22 nov" => ["18:00", "21:30"]],
             "sinopsi" => "Un equip d'exploradors viatja a través d'un forat de cuc a l'espai en un intent per assegurar la supervivència de la humanitat.",
             "durada" => 169,
             "repartiment" => "Matthew McConaughey, Anne Hathaway, Jessica Chastain",
@@ -26,7 +26,7 @@
         [
             "nom" => "Spider-Man: Into the Spider-Verse",
             "imatge" => "https://static.wikia.nocookie.net/spiderman/images/7/70/Spider-Man_Into_the_Spider-Verse_-_Poster_Miles_Morales.png/revision/latest?cb=20190211221050&path-prefix=es",
-            "horaris" => "15:45, 18:00, 20:15",
+            "horaris" => ["20 nov" => ["15:45", "18:00", "20:15"], "21 nov" => ["16:00", "18:30"], "23 nov" => ["12:00", "17:30"]],
             "sinopsi" => "El jove Miles Morales es converteix en el Spider-Man del seu univers i s'ha d'unir a altres herois d'altres dimensions per aturar una amenaça per a totes les realitats.",
             "durada" => 117,
             "repartiment" => "Shameik Moore, Jake Johnson, Hailee Steinfeld",
@@ -37,7 +37,7 @@
         [
             "nom" => "Parasite",
             "imatge" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZV8EZLuQQ2J4wO4FfCyV0u9o56gMCu4eS2KHWtYgdZV7fwimp945CDMA&s=10",
-            "horaris" => "18:30, 21:00",
+            "horaris" => ["19 nov" => ["18:30", "21:00"], "22 nov" => ["19:15", "22:15"]],
             "sinopsi" => "La cobdícia i la discriminació de classe amenacen la relació simbiòtica nouvinguda entre la rica família Park i el depauperat clan Kim.",
             "durada" => 132,
             "repartiment" => "Song Kang-ho, Lee Sun-kyun, Cho Yeo-jeong",
@@ -48,7 +48,7 @@
         [
             "nom" => "The Dark Knight",
             "imatge" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8S3H1vF0mLgLKg37CgO-Co7PTuQSRIkUOFYiAiKcipP1vD0y2FbfJHspc&s=10",
-            "horaris" => "19:00, 22:15",
+            "horaris" => ["20 nov" => ["19:00", "22:15"], "21 nov" => ["18:45", "22:00"], "23 nov" => ["20:00", "23:15"]],
             "sinopsi" => "Quan l'amenaça coneguda com el Joker emergeix i causa el caos a Gotham, Batman ha d'acceptar una de les proves físiques i mentals més grans per combatre la injustícia.",
             "durada" => 152,
             "repartiment" => "Christian Bale, Heath Ledger, Aaron Eckhart",
