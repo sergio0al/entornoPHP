@@ -2,6 +2,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a{
+    text-decoration: none;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -52,8 +56,6 @@ header ul li:hover{
 #bannerSection img{
     width: 100%;
 }
-
-
 
 #carteleraSection{
     padding-top: 70px;
@@ -211,8 +213,8 @@ header ul li:hover{
     height: 32px;
     color: white;
     font-weight: bold;
-    font-size: 17px;
-    border: 2px solid white;
+    font-size: 15px;
+    border: 1px solid white;
     background-color: #e0161d;
     cursor: pointer;
 }
@@ -235,9 +237,17 @@ header ul li:hover{
     cursor: pointer;
 }
 
-
-
-
+#carteleraSection #aviso{
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    color: rgb(207, 207, 207);
+    font-style: italic;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 
 
 
@@ -248,9 +258,70 @@ header ul li:hover{
 
 #sectionInfo {
     width: 998px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     text-align: start;
+    justify-content: center;
+    margin: auto auto;
+}
+
+#sectionInfo #pasosDiv ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    list-style: none;
+    color: #e0161d;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+#sectionInfo #pasosDiv li{
+    display: flex;
+    gap: 10px;
+    height: 70px;
+    align-items: center;
+    font-size: 18px;
+}
+
+#sectionInfo #pasosDiv span{
+    width: 34px;
+    height: 34px;
+    border: 2px solid #e0161d;
+    border-radius: 50%;
+    font-size: 18px;
+    text-align: center;
+    align-content: center;
+}
+
+#sectionInfo #pasosDiv .selected{
+    border-bottom: 4px solid #e0161d;
+}
+
+#sectionInfo #pasosDiv .selected span{
+    background-color: #e0161d;
+    color: white;
+}
+
+#sectionInfo .volver{
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border: 1px solid #e0161d;
+    color: #e0161d;
+    background-color: white;
+    cursor: pointer;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    transition: all 300ms ease;
+}   
+
+#sectionInfo .volver:hover{
+    background-color: #e0161d;
+    color: white;
+    transition: all 300ms ease;
 }
 
 #sectionInfo h2{
@@ -289,7 +360,8 @@ header ul li:hover{
     box-sizing: border-box;
     align-content: center;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
     border-radius: 4px;
     cursor: pointer;
     background-color: white;
@@ -339,4 +411,30 @@ header ul li:hover{
     width: 100%;
     height: 50px;
     background-color: #027c87;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
+
+#sectionInfo .infoPelicula img{
+    width: 70px;
+    height: auto;
+}
+
+#sectionInfo .infoPelicula .infoHoras hr{
+    width: 4px;
+    height: 20px;
+    background-color: #01565e;
+}
+
+
+#sectionInfo .infoPelicula .infoHoras .hora{
+    padding: 4px 10px;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: white;
+    background-color: #dc1c19;
+    cursor: pointer;
+}
+

@@ -18,7 +18,7 @@ include("pelicules.php");
 <body>
 
     <header>
-        <img src="images/ocine_logo.png">
+        <a href="index.php"><img src="images/ocine_logo.png"></a>
         <nav>
             <ul>
                 <li>CARTELERA</li>
@@ -31,18 +31,28 @@ include("pelicules.php");
     </header>
 
     <section id="sectionInfo">
+        <div id="pasosDiv">
+            <ul>
+                <li class="selected"><span>1</span> BUTACAS</li>
+                <li><span>2</span> ENTRADAS</li>
+                <li><span>3</span> BAR</li>
+                <li><span>4</span> RESUMEN</li>
+                <li><span>5</span> PAGO</li>
+            </ul>
+        </div>
+        <a href="index.php"><button class="volver"><i class="fa-solid fa-arrow-left-long"></i>Volver a la cartelera</button></a>
         <h2><?=$pelicules[$_GET["id"]]["nom"]?></h2>
         <hr>
         <div class="content">
             <div class="multimediaPelicula">
                 <img src="<?=$pelicules[$_GET["id"]]["imatge"]?>">
-                <a href="<?=$pelicules[$_GET["id"]]["trailer"]?>" target="_blank"><button>Trailer</button></a>
+                <a href="<?=$pelicules[$_GET["id"]]["trailer"]?>" target="_blank"><button><i class="fa-solid fa-circle-play"></i>Trailer</button></a>
             </div>
             <div class="infoPelicula">
                 <p class="descripcion"><?=$pelicules[$_GET["id"]]["sinopsi"]?></p>
                 <ul>
                     <li>Duración: <span><?=$pelicules[$_GET["id"]]["durada"]?>'</span></li>
-                    <li>Director: <span>Yukiyo Teramoto</span></li>
+                    <li>Director: <span><?=$pelicules[$_GET["id"]]["director"]?></span></li>
                     <li>Clasificación: <span><?=$pelicules[$_GET["id"]]["qualificacio"]?></span></li>
                     <li>Actores: <span><?=$pelicules[$_GET["id"]]["repartiment"]?></span></li>
                     <li>Género: <span><?=$pelicules[$_GET["id"]]["genere"]?></span></li>
@@ -53,7 +63,13 @@ include("pelicules.php");
                     <? endforeach ?>
                 </select>
                 <div class="infoHoras">
-                    <img src="images/atmos-logo.png" alt="">
+                    <img src="images/atmos_logo.png" alt="">
+                    <?php foreach($pelicules[$_GET["id"]]["horaris"] as $dia => $horas):?>
+                        <hr>
+                        <?php foreach($horas as $hora):?>
+                        <p class="hora"><?=$hora?></p>
+                        <? endforeach ?>
+                    <? endforeach ?>
                 </div>
             </div>
         </div>

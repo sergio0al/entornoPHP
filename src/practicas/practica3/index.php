@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <img src="images/ocine_logo.png">
+        <a href="index.php"><img src="images/ocine_logo.png"></a>
         <nav>
             <ul>
                 <li>CARTELERA</li>
@@ -69,18 +69,18 @@
                 </div>
                 <div class="info">
                     <h2><?=$pelicula["nom"]?></h2>
-                    <button class="horarisBtn">Ver Horarios</button>
+                    <a href="info.php?id=<?=$id?>"><button class="horarisBtn">Ver Horarios</button></a>
                     <p class="clasificacionText">Clasificación: <span class="clasificacion"><?=$pelicula["qualificacio"]?> años</span></p>
                     <p class="genero"><?=$pelicula["genere"]?></p>
                     <div>
-                        <button>Trailer</button>
+                        <a href="<?=$pelicula["trailer"]?>" target="_blank"><button>Trailer</button></a>
                         <a href="info.php?id=<?=$id?>"><button>Info</button></a>
                     </div>
                 </div>
             </article>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </div>
-
+        <small id="aviso">Los horarios indican el inicio de la sesión que puede coincidir, o no, con el inicio de la proyección de la película</smalls>
 
     </section>
 </body>
