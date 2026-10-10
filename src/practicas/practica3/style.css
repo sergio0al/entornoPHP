@@ -2,6 +2,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body{
+    margin: 0;
+    padding: 0;
+}
 
 header{
     width: 100%;
@@ -13,6 +17,8 @@ header{
     border-bottom: 1px solid rgb(240, 239, 239);
     align-items: center;
     margin-bottom: 40px;
+    position: fixed;
+    background-color: white;
 }
 
 header img{
@@ -39,18 +45,103 @@ header ul li:hover{
     transition: all 300ms ease;
 }
 
+#bannerSection{
+    padding-top: 100px;
+}
+
+#bannerSection img{
+    width: 100%;
+}
+
+
+
+#carteleraSection{
+    padding-top: 70px;
+    padding-bottom: 130px;
+    width: 1030px;
+    margin: auto;
+}
+
+#carteleraSection .filtrosDiv{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#carteleraSection hr{
+    margin-bottom: 15px;
+}
+
+#carteleraSection .filtrosDiv ul{
+    max-width: 826px;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    margin-top: 0px;
+}
+
+#carteleraSection .filtrosDiv li{
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 8px 16px;
+    color: white;
+    background-color: #0e252e;
+    list-style: none;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#carteleraSection .ventas{
+    border: 1px solid #0e252e !important;
+    color: #0e252e !important;
+    background-color: white !important;
+}
+
+#carteleraSection #selected{
+    background-color: #e0161d;
+}
+
+#carteleraSection .filtrosDiv img{
+    height: 18px;
+    display: flex;
+}
+
+#carteleraSection .filtrosDiv div .icon{
+    position: absolute;
+    color: white;
+    margin: 10px 10px;
+}
+
+#carteleraSection .filtrosDiv select{
+    width: 190px;
+    height: 36px;
+    border-radius: 5px;
+    border: 0px;
+    text-align: center;
+    color: white;
+    background-color: #e0161d;
+    cursor: pointer;
+}
 
 
 
 
 
-#carteleraSection {
+.cartasDiv {
     display: grid;
     grid-template-columns: auto auto auto auto;
     justify-self: center;
     gap: 10px;
 }
-
 
 /* CART */
 .cart{

@@ -58,4 +58,8 @@
         ]
     ];
 
+
+
+    $generos = ["Todos los géneros", "Acció", "Animació", "Aventures","Bè·llica", "Comèdia", "Comèdia-Drama", "Drama", "Familiar", "Infantil", "Superherois", "Terror", "Thriller", "Thriller drama"];
+
 ?>
