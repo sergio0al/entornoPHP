@@ -23,7 +23,7 @@
             "repartiment" => "Cliff Robertson, Geneviève Bujold, John Lithgow",
             "qualificacio" => 12,
             "genere" => "Thriller, Misteri",
-            "trailer" => "https://www.youtube.com/watch?v=T1bLXXQ13_0" 
+            "trailer" => "https://www.youtube.com/watch?v=5MBu6Xhuj38" 
         ],
         [
             "nom" => "Interstellar",

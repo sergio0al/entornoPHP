@@ -12,6 +12,7 @@ include("pelicules.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a9b5133090.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
