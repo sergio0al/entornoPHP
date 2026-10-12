@@ -49,6 +49,7 @@ include("pelicules.php");
                 <a href="<?=$pelicules[$_GET["id"]]["trailer"]?>" target="_blank"><button><i class="fa-solid fa-circle-play"></i>Trailer</button></a>
             </div>
             <div class="infoPelicula">
+                <?php if(isset($_GET["id"])):?>
                 <p class="descripcion"><?=$pelicules[$_GET["id"]]["sinopsi"]?></p>
                 <ul>
                     <li>Duración: <span><?=$pelicules[$_GET["id"]]["durada"]?>'</span></li>
@@ -71,6 +72,7 @@ include("pelicules.php");
                         <? endforeach ?>
                     <? endforeach ?>
                 </div>
+                <? endif ?>
             </div>
         </div>
     </section>

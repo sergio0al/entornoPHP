@@ -13,6 +13,18 @@
             "genere" => "Ciència-ficció, Acció",
             "trailer" => "https://www.youtube.com/watch?v=YoHD9XEInc0"
         ],
+       [
+            "nom" => "Obsession",
+            "imatge" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXmGdFDLpLLbJXIYLP6H2_rcWqtUZsQJ-dRM9wNMlIKn6U8MtNg4Hlw0&s=10",
+            "horaris" => ["19 nov" => ["19:15", "22:00"], "20 nov" => ["19:15", "22:00"]],
+            "sinopsi" => "Un ric home de negocis, encara turmentat per la tràgica mort de la seva dona i filla durant un segrest fa setze anys, coneix durant un viatge a Itàlia una jove que és idèntica a la seva difunta esposa, iniciant una fosca obsessió.",
+            "durada" => 98,
+            "director" => "Brian De Palma",
+            "repartiment" => "Cliff Robertson, Geneviève Bujold, John Lithgow",
+            "qualificacio" => 12,
+            "genere" => "Thriller, Misteri",
+            "trailer" => "https://www.youtube.com/watch?v=T1bLXXQ13_0" 
+        ],
         [
             "nom" => "Interstellar",
             "imatge" => "https://www.ecartelera.com/images/noticias/fotos/19400/19409/1.jpg",
