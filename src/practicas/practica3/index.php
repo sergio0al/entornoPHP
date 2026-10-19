@@ -22,7 +22,7 @@
     <header>
         <a href="index.php"><img src="images/ocine_logo.png"></a>
         <nav>
-            <ul>
+            <ul> 
                 <li>CARTELERA</li>
                 <li>BAR</li>
                 <li>FIDELITY<i class="fa-solid fa-angle-down"></i></li>
