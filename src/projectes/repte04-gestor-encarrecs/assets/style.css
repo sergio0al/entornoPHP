@@ -258,3 +258,58 @@ header #left div h2{
     border-right: 0px;
     background-color: rgb(238, 213, 165);
 }
+
+
+
+
+/* DETALL */
+
+
+main{
+    min-height: calc(100vh - 202.91px);
+}
+
+
+#detallDiv{
+    margin: auto;
+    width: 1000px;
+    height: 400px;
+    border-radius: 13px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+#headerDetall{
+    height: 170px;
+    background-color: #183b63;
+    align-content: center;
+    box-sizing: border-box;
+    padding: 0px 60px;
+}
+
+
+
+
+
+
+
+footer{
+    border-top: 5px solid #ffa500;
+    background-color: #112c49;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0px 100px;
+    align-items: center;
+    color: white;
+}
+
+footer ul{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    font-size: 20px;
+}
