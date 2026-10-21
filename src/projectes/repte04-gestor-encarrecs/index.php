@@ -1,6 +1,19 @@
 <?php 
 
-include("./dades.php")
+include("./dades.php");
+
+if(isset($_GET["titulo"]) && isset($_GET["cliente"])){
+    $nou = [
+        "titol" => $_GET["titulo"],
+        "client" => "FitZone Badalona",
+        "hores" => 6,
+        "estat" => "En procés",
+        "etiquetes" => ["HTML", "CSS", "Responsive"]
+    ];
+
+    guardarEncarrec($nou);
+};
+
 
 ?>
 
@@ -48,28 +61,26 @@ include("./dades.php")
 
     <section id="formularioSection">
         <div>
-            <p>Alta de projecte</p>
+            <small>Alta de projecte</small>
             <h2>Afeguir un encàrrec</h2>
             <p>Emplena totes les dades. Les etiquetes s´han d´escriure separades per comes.</p>
-        </div>
-        <form action="index.php" method="post">
-            <label for="title">Titol</label>
-            <input type="text" id="title" name="titulo">
-            <label for="cliente">Client</label>
-            <input type="text" id="cliente" name="cliente">
-            <div>
-                <label for="hores">Hores</label>
-                <input type="text" id="hores" names="hores">
-                <label for="estat">Estat</label>
-                <select name="estat" id="estat">
-                    <option value="">Pendent</option>
-                    <option value="">En procés</option>
-                    <option value="">Acabat</option>
-                </select>
+            <div class="alert">
+                <p>Les dades no es desen entre peticion, tal como demana el repte.</p>
             </div>
-            <label for="etiquetes">Etiquetes</label>
-            <input type="text" id="etiquetes" name="etiquetes">
+        </div>
+        <form action="index.php" method="get">
+            <label for="title">Titol <input type="text" id="title" name="titulo" placeholder="Ex: Redisseny d´una botiga"></label>
+            <label for="cliente">Client <input type="text" id="cliente" name="cliente" placeholder="Nom del client"></label>
+            <label for="hores">Hores <input type="text" id="hores" names="hores"></label>
+            <label for="estat">Estat <select name="estat" id="estat">
+                <option value="">Pendent</option>
+                <option value="">En procés</option>
+                <option value="">Acabat</option>
+            </select></label>
+            <label for="etiquetes">Etiquetes <input type="text" id="etiquetes" name="etiquetes" placeholder="PHP, Docker, Responsive"></label>
+            <input type="submit" name="Añadir" id="">
         </form>
     </section>
+    <?php print_r($encarrecs) ?>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php 
 
+
 $encarrecs = [
     [
         "titol" => "Web d'una cafeteria",
@@ -56,7 +57,12 @@ $encarrecs = [
         "hores" => 6,
         "estat" => "En procés",
         "etiquetes" => ["HTML", "CSS", "Responsive"]
-    ]
+    ],
 ];
+
+
+function guardarEncarrec($nou){
+    $encarrecs[] = $nou;
+}
 
 ?>
