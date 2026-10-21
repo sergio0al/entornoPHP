@@ -2,6 +2,7 @@
 
 include("./dades.php");
 
+
 if(isset($_GET["titulo"]) && isset($_GET["cliente"])){
     $nou = [
         "titol" => $_GET["titulo"],
@@ -11,8 +12,8 @@ if(isset($_GET["titulo"]) && isset($_GET["cliente"])){
         "etiquetes" => ["HTML", "CSS", "Responsive"]
     ];
 
-    guardarEncarrec($nou);
-};
+    $encarrecs[] = $nou;
+}
 
 
 ?>
@@ -52,7 +53,7 @@ if(isset($_GET["titulo"]) && isset($_GET["cliente"])){
             <p class="tecnologias"><?= implode(" · ",$encarrec["etiquetes"])?></p>
             <div class="buttonDiv">
                 <a href="detall.php?id=<?=$id?>"><button class="veure">Veure detall</button></a>
-                <a href="detall.php"><button class="elminar">Eliminar</button></a>
+                <a href="index.php"><button class="elminar">Eliminar</button></a>
             </div>
         </div>
         <? endforeach ?>

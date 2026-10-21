@@ -61,8 +61,4 @@ $encarrecs = [
 ];
 
 
-function guardarEncarrec($nou){
-    $encarrecs[] = $nou;
-}
-
 ?>
