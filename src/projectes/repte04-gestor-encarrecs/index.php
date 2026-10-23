@@ -1,7 +1,12 @@
 <?php 
 
+session_start();
+
 include("./dades.php");
 
+if(!isset($_SESSION["encarrecs"])){
+    $_SESSION["encarrecs"] = $encarrecs;
+}
 
 if(isset($_GET["id"])){
     unset($encarrecs[$_GET["id"]]);
