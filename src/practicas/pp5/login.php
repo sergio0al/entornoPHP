@@ -9,11 +9,18 @@ $usuarios = [
 if(!isset($_SESSION["usuarios"])){
     $_SESSION["usuarios"] = $usuarios;
 }
-
-
-
    
   
+if(isset($_SERVER["REQUEST_METHOD"]) == "POST"){
+    foreach($_SESSION["usuarios"] as $id => $usuario){
+        if($usuario["username"] === $_POST["nombre"] and $usuario["password"] === $_POST["password"]){
+            $_SESSION["nombre"] = $_POST["nombre"];
+            $_SESSION["rol"] = $_SESSION["nombre"][$id]["rol"];
+            header("Location: home.php");
+            exit;
+        }
+    }
+}
 
 ?>
 
@@ -37,14 +44,12 @@ if(!isset($_SESSION["usuarios"])){
         <div class="signin">
             <div class="content text-center">
                 <h2>Inicia sesión</h2>
-                <form method="xxxxx" action="login.php">
+                <form method="post" action="login.php">
                     <div class="inputBox ">
-                        <input class="p-2 m-2" placeholder="Username" type="text" name="" required>
-                       
+                        <input class="p-2 m-2" placeholder="Username" type="text" name="nombre" required>
                     </div>
                     <div class="inputBox ">
-                        <input class="p-2 m-2" placeholder="Password" type="password" name="" required>
-                       
+                        <input class="p-2 m-2" placeholder="Password" type="password" name="password" required>
                     </div>
                     <div class="inputBox ">
                         <input class="p-2 m-2" placeholder="Foto de perfil" type="text" name="" required>
