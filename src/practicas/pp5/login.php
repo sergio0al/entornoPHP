@@ -6,23 +6,32 @@ $usuarios = [
     ["username" => "reader", "password" => "readerpass", "role" => "lector"]
 ];
 
+$error = "";
+
 if(!isset($_SESSION["usuarios"])){
     $_SESSION["usuarios"] = $usuarios;
 }
-   
-  
-if(isset($_SERVER["REQUEST_METHOD"]) == "POST"){
-    foreach($_SESSION["usuarios"] as $id => $usuario){
-        if($usuario["username"] === $_POST["nombre"] and $usuario["password"] === $_POST["password"]){
-            $_SESSION["nombre"] = $_POST["nombre"];
-            $_SESSION["rol"] = $_SESSION["nombre"][$id]["rol"];
+
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+    $nombre = $_POST["nombre"] ? $_POST["nombre"] : "";
+    $password = $_POST["password"] ? $_POST["password"] : "";
+    $foto = $_POST["foto"] ? $_POST["foto"] : "https://static.vecteezy.com/system/resources/thumbnails/048/334/475/small/a-person-icon-on-a-transparent-background-png.png";
+    $cifrado = password_hash($password, PASSWORD_DEFAULT);
+
+    foreach($_SESSION["usuarios"] as $usuario){
+        if($usuario["username"] === $nombre && password_verify($usuario["password"], $cifrado)){
+            $_SESSION["nombre"] = $usuario["username"];
+            $_SESSION["rol"] = $usuario["role"];
+            $_SESSION["foto"] = $foto;
             header("Location: home.php");
             exit;
+        }else{
+            $error = "!Usuario o contraseña incorrectos!";
         }
     }
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -52,7 +61,7 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "POST"){
                         <input class="p-2 m-2" placeholder="Password" type="password" name="password" required>
                     </div>
                     <div class="inputBox ">
-                        <input class="p-2 m-2" placeholder="Foto de perfil" type="text" name="" required>
+                        <input class="p-2 m-2" placeholder="Foto de perfil" type="text" name="foto">
                        
                     </div>
                     <?php if (!empty($error)) : ?>

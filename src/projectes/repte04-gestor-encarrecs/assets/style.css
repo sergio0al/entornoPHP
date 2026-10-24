@@ -76,7 +76,23 @@ header #left div h2{
 
 
 
+#sectionContador{
+    margin: 20px 300px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
 
+#sectionContador div{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(197, 197, 197);
+    width: 100%;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    align-items: center;
+}
 
 
 
@@ -269,29 +285,67 @@ main{
     min-height: calc(100vh - 202.91px);
 }
 
+.content {
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-#detallDiv{
-    margin: auto;
-    width: 1000px;
-    height: 400px;
+a {
+    color: #183b63;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#detallDiv {
+    margin: 16px auto 0;
+    width: 100%;
     border-radius: 13px;
     overflow: hidden;
     background-color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-
-#headerDetall{
-    height: 170px;
+#headerDetall {
+    position: relative;
     background-color: #183b63;
-    align-content: center;
     box-sizing: border-box;
-    padding: 0px 60px;
-    display: gri;
+    padding: 20px 60px;
+    color: white;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#headerDetall h2{
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+#headerDetall small{
+    margin-top: 14px;
+    color: orange;
+    font-weight: bold;
 }
 
 
+#mainDetall{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    padding-bottom: 30px;
+}
 
+#mainDetall div{
+    border-bottom: 2px solid rgb(224, 224, 224);
+}
 
 
 

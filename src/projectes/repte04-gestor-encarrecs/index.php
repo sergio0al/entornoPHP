@@ -24,6 +24,10 @@ if(isset($_POST["titulo"]) && isset($_POST["cliente"])){
     array_push($encarrecs, $nou);
 }
 
+$hores = 0;
+foreach($encarrecs as $encarrec){
+    $hores += $encarrec["hores"];
+}
 
 ?>
 
@@ -49,6 +53,17 @@ if(isset($_POST["titulo"]) && isset($_POST["cliente"])){
                 <small>Consultar la feina de l´equip, revisa les hores previstes i registra encàrrecs nous.</small>
             </div>
             <a href="#formularioSection"><button>+ Nou encàrrec</button></a>
+        </section>
+
+        <section id="sectionContador">
+            <div>
+                <h2>Total d´encarrecs</h2>
+                <p><?=count($encarrecs)?></p>
+            </div>
+            <div>
+                <h2>Hores estimades</h2>
+                <p><?=$hores?>h</p>
+            </div>
         </section>
 
         <section id="sectionEncarrecs">
