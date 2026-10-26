@@ -89,7 +89,7 @@ foreach($encarrecs as $encarrec){
         <section id="formularioSection">
             <div>
                 <small>Alta de projecte</small>
-                <h2>Afeguir un encàrrec</h2>
+                <h2>Afegir un encàrrec</h2>
                 <p>Emplena totes les dades. Les etiquetes s´han d´escriure separades per comes.</p>
                 <div class="alert">
                     <p>Les dades no es desen entre peticion, tal como demana el repte.</p>
