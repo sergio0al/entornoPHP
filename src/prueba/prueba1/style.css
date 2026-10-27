@@ -1,0 +1,110 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}    
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(233, 232, 232);
+}
+form{
+    width: 400px;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    flex-direction: column; 
+    margin: 0 auto;
+    justify-content: center;
+    gap: 20px;
+    background-color: white;
+}
+label{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    position: relative;
+}
+input{
+    height: 40px;
+    border: 0px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    background-color: rgb(230, 230, 230);
+}
+label[for="politicas"]{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+input[type="checkbox"]{
+    width: 15px;
+}
+.conjunto{
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    overflow: hidden;
+}
+.conjunto .flechas{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: 0.20s;
+}
+.conjunto .icon{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    cursor: pointer;
+}
+button{
+    width: 100%;
+    height: 40px;
+    border: 0px;
+    border-radius: 12px;
+    background-color: rgb(35, 126, 247);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    &:hover .filtro{
+        transform: translateX(-10%) skewX(-20deg);
+    }
+}
+button .filtro{
+    width: 120%;
+    height: 100%;
+    background-color: rgb(26, 85, 161);
+    transform: translateX(-110%) skewX(-20deg);
+    transition: 0.30s;
+}
+button .texto{
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    top: 0;
+    left: 0;
+    position: absolute;
+    font-weight: bold;
+    color: white;
+}
+a{
+    text-align: center;
+    color: rgb(35, 126, 247);
+    text-decoration: none;
+    margin-top: -5px;
+    font-size: 12px;
+}
+
+h1{
+    font-size: 25px;
+    letter-spacing: 1px;
+    text-align: center;
+}
