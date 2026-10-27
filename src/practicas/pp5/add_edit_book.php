@@ -1,38 +1,19 @@
 <?php
 
-session_start();
+include("./functions.php");
+
 $editar = isset($_GET["id"]) ? true : false;
 
 
 
 if(isset($_POST["add"])){
-    $nou =  [
-        "id" => count($_SESSION["libros"]),
-        "titulo" => $_POST["titulo"],
-        "autor" => $_POST["autor"],
-        "descripcion" => $_POST["descripcion"],
-        "imagen" => $_POST["foto"] !== "" ? $_POST["foto"] : "https://assets.bookguild.co.uk/media/books/9781835744680.jpg"
-    ];
-
-    array_push($_SESSION["libros"], $nou);
-    header("Location: home.php");
-    exit;
+    agregarLibro($_POST["titulo"], $_POST["autor"], $_POST["descripcion"], $_POST["foto"] !== "" ? $_POST["foto"] : "https://assets.bookguild.co.uk/media/books/9781835744680.jpg");
 }
 
 
 
-
 if(isset($_POST["editar"])){
-    $id = $_POST["id"];
-    $_SESSION["libros"][$id] = [
-        "id" => $id,
-        "titulo" => $_POST["titulo"],
-        "autor" => $_POST["autor"],
-        "descripcion" => $_POST["descripcion"],
-        "imagen" => $_POST["foto"]
-    ];
-    header("Location: home.php");
-    exit;
+    editarLibro($_POST["id"], $_POST["titulo"], $_POST["autor"], $_POST["descripcion"], $_POST["foto"] !== "" ? $_POST["foto"] : "https://assets.bookguild.co.uk/media/books/9781835744680.jpg");
 }
 
 ?>

@@ -1,10 +1,7 @@
 <?php
-session_start();
 
-$usuarios = [
-    ["username" => "admin", "password" => "adminpass", "role" => "admin"],
-    ["username" => "reader", "password" => "readerpass", "role" => "lector"]
-];
+session_start();
+include("./data/data.php");
 
 $error = "";
 
@@ -19,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $cifrado = password_hash($password, PASSWORD_DEFAULT);
 
     foreach($_SESSION["usuarios"] as $usuario){
-        if($usuario["username"] === $nombre && password_verify($usuario["password"], $cifrado)){
+        if($usuario["username"] === $nombre && password_verify($password, $usuario["password"])){
             $_SESSION["nombre"] = $usuario["username"];
             $_SESSION["rol"] = $usuario["role"];
             $_SESSION["foto"] = $foto;
