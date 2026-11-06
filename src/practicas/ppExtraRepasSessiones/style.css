@@ -1,0 +1,149 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    width: 100vw;
+    height: 80px;
+    text-align: center;
+    align-content: center;
+    background-color: rgb(219, 219, 219);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1{
+    flex: 1;
+}
+
+main{
+    height: calc(100vh - 80px - 80px);
+}
+
+#cerrar{
+    width: 200px;
+    height: 50px;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    align-content: center;
+    letter-spacing: 1px;
+}
+
+#cuerpo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#contCamion{
+    text-align: center;
+    margin: 10px 0px;
+}
+
+#error{
+    width: 100vw;
+    height: 40px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(247, 100, 100);
+    align-content: center;
+}
+
+#listaContenedores{
+    width: 800px;
+    height: 300px;
+    border-radius: 12px;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.contenedor{
+    border: 1px solid black;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    font-weight: bold;
+    width: 180px;
+    height: 230px;
+}
+
+.contenedor img{
+    width: 150px;
+}
+
+.sleccionado{
+    transform: scale(1.1);
+    background-color: rgb(247, 247, 176);
+}
+
+
+#listaTipos{
+    display: flex;
+    gap: 5px;
+}
+
+
+#listaTipos a{
+    box-sizing: border-box;
+    padding: 8px 17px;
+    border: 1px solid black;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    color: black;
+}
+
+
+#listaTipos #plasticoBtn{
+    background-color: yellow;
+}
+
+#listaTipos #vidrioBtn{
+    background-color: green;
+}
+
+#listaTipos #organicoBtn{
+    background-color: red;
+}
+
+#listaTipos #cartonBtn{
+    background-color: blue;
+}
+
+
+footer{
+    text-align: center;
+    background-color: rgb(219, 219, 219);
+    align-content: center;
+    height: 80px;
+}
+
+#listado{
+    background-color: rgb(211, 210, 210);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+    align-items: center;
+    gap: 5px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
