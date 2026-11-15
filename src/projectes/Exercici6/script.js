@@ -1,59 +1,71 @@
-const roigNegre = document.querySelector("#roigNegre")
-const parellImparell = document.querySelector("#parellImparell")
-const pasaFalta = document.querySelector("#pasaFalta")
-const pleno = document.querySelector("#pleno")
-const docena = document.querySelector("#docena")
-const columna = document.querySelector("#columna")
-const dosDocenas = document.querySelector("#dosDocenas")
-const dosColumnas = document.querySelector("#dosColumnas")
-const todos = [roigNegre, parellImparell, pasaFalta, pleno, docena, columna, dosDocenas, dosColumnas]
+let juego = document.querySelector("#juego");
 
+let roigNegre = document.querySelector("#roigNegre");
+let parellImparell = document.querySelector("#parellImparell");
+let pasaFalta = document.querySelector("#pasaFalta");
+let pleno = document.querySelector("#pleno");
+let docena = document.querySelector("#docena");
+let columna = document.querySelector("#columna");
+let dosDocenas = document.querySelector("#dosDocenas");
+let dosColumnas = document.querySelector("#dosColumnas");
+let transversal = document.querySelector("#transversal");
+let seisena = document.querySelector("#seisena");
+let cuadro = document.querySelector("#cuadro");
+let caballo = document.querySelector("#caballo");
 
+function mostrar() {
+    // primero escondo todos
+    roigNegre.style.display = "none";
+    parellImparell.style.display = "none";
+    pasaFalta.style.display = "none";
+    pleno.style.display = "none";
+    docena.style.display = "none";
+    columna.style.display = "none";
+    dosDocenas.style.display = "none";
+    dosColumnas.style.display = "none";
+    transversal.style.display = "none";
+    seisena.style.display = "none";
+    cuadro.style.display = "none";
+    caballo.style.display = "none";
 
-const juego = document.querySelector("#juego")
-
-
-todos.forEach(element => {
-        element.style.display = "none"
-    });
-    if (juego.value === "roigNegre") {
+    // y luego enseño solo el que toca
+    if (juego.value == "roigNegre") {
         roigNegre.style.display = "";
-    } else if (juego.value === "parellImparell") {
+    }
+    if (juego.value == "parellImparell") {
         parellImparell.style.display = "";
-    } else if (juego.value === "pasaFalta") {
+    }
+    if (juego.value == "pasaFalta") {
         pasaFalta.style.display = "";
-    } else if (juego.value === "pleno") {
+    }
+    if (juego.value == "pleno") {
         pleno.style.display = "";
-    } else if (juego.value === "docena") {
+    }
+    if (juego.value == "docena") {
         docena.style.display = "";
-    } else if (juego.value === "columna") {
+    }
+    if (juego.value == "columna") {
         columna.style.display = "";
-    } else if (juego.value === "dosDocenas") {
+    }
+    if (juego.value == "dosDocenas") {
         dosDocenas.style.display = "";
-    } else if (juego.value === "dosColumnas") {
-        dosColumnas.style.display = "";
-}
-
-
-juego.addEventListener("change", function(){
-    todos.forEach(element => {
-        element.style.display = "none"
-    });
-    if (juego.value === "roigNegre") {
-        roigNegre.style.display = "";
-    } else if (juego.value === "parellImparell") {
-        parellImparell.style.display = "";
-    } else if (juego.value === "pasaFalta") {
-        pasaFalta.style.display = "";
-    } else if (juego.value === "pleno") {
-        pleno.style.display = "";
-    } else if (juego.value === "docena") {
-        docena.style.display = "";
-    } else if (juego.value === "columna") {
-        columna.style.display = "";
-    } else if (juego.value === "dosDocenas") {
-        dosDocenas.style.display = "";
-    } else if (juego.value === "dosColumnas") {
+    }
+    if (juego.value == "dosColumnas") {
         dosColumnas.style.display = "";
     }
-})
+    if (juego.value == "transversal") {
+        transversal.style.display = "";
+    }
+    if (juego.value == "seisena") {
+        seisena.style.display = "";
+    }
+    if (juego.value == "cuadro") {
+        cuadro.style.display = "";
+    }
+    if (juego.value == "caballo") {
+        caballo.style.display = "";
+    }
+}
+
+mostrar();
+juego.addEventListener("change", mostrar);
