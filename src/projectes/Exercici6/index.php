@@ -2,10 +2,13 @@
 
 session_start();
 include("data.php");
+include("functions.php");
 
-if (!isset($_SESSION["saldo"])) {
+if (!isset($_SESSION["saldo"]) || !isset($_SESSION["historial"])) {
     $_SESSION["saldo"] = 1000;
+    $_SESSION["historial"] = [];
 }
+
 
 $ganado = false;
 $numero = "";
@@ -23,123 +26,57 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $col = array_rand($tapete[$fila]);
     $numero = $tapete[$fila][$col];
 
-    $numero = 10;
 
+    
 
-    if ($_POST["juego"] === "roigNegre") {
-        $color = in_array($numero, $rojo) ? "roig" : "negre";
-        if ($apuesta === $color) {
-            $_SESSION["saldo"] += ($dinero * 2);
-            $ganado = true;
-        }
-    }
+    switch ($juego) {
+        case "roigNegre":
+            $ganado = roigNegre($numero, $apuesta, $dinero, $rojo);
+            break;
 
-    if ($_POST["juego"] === "parellImparell") {
-        $par = ($numero % 2 === 0) ? "par" : "impar";
-        if ($apuesta === $par) {
-            $_SESSION["saldo"] += ($dinero * 2);
-            $ganado = true;
-        }
-    }
+        case "parellImparell":
+            $ganado = parellImparell($numero, $apuesta, $dinero);
+            break;
 
-    if ($_POST["juego"] === "pasaFalta") {
-        $resultadoPasaFalta = in_array($numero, $pasa) ? "pasa" : "falta";
-        if ($apuesta === $resultadoPasaFalta) {
-            $_SESSION["saldo"] += ($dinero * 2);
-            $ganado = true;
-        }
-    }
+        case "pasaFalta":
+            $ganado = pasaFalta($numero, $apuesta, $dinero, $pasa);
+            break;
 
-    if ($_POST["juego"] === "pleno") {
-        $numeroApostado = $_POST["numPleno"];
-        if ($numeroApostado == $numero) {
-            $_SESSION["saldo"] += ($dinero * 36);
-            $ganado = true;
-        }
-    }
+        case "pleno":
+            $ganado = pleno($numero, $_POST["numPleno"], $dinero);
+            break;
 
-    if ($_POST["juego"] === "docena") {
-        if ($apuesta === "1r" && in_array($numero, $docenas["1r"])) {
-            $_SESSION["saldo"] += ($dinero * 3);
-            $ganado = true;
-        }
-        if ($apuesta === "2r" && in_array($numero, $docenas["2r"])) {
-            $_SESSION["saldo"] += ($dinero * 3);
-            $ganado = true; 
-        }
-        if ($apuesta === "3r" && in_array($numero, $docenas["3r"])) {
-            $_SESSION["saldo"] += ($dinero * 3);
-            $ganado = true; 
-        }
-    }
+        case "docena":
+            $ganado = docena($numero, $apuesta, $dinero, $docenas);
+            break;
 
-    if ($_POST["juego"] === "columna") {
-        if ($apuesta === "1r" && in_array($numero, $columnas[1])) {
-            $_SESSION["saldo"] += ($dinero * 3);
-            $ganado = true; 
-        }
-        if ($apuesta === "2r" && in_array($numero, $columnas[2])) {
-            $_SESSION["saldo"] += ($dinero * 3);
-            $ganado = true; 
-        }
-        if ($apuesta === "3r" && in_array($numero, $columnas[3])) {
-            $_SESSION["saldo"] += ($dinero * 3);
-            $ganado = true; 
-        }
-    }
+        case "columna":
+            $ganado = columna($numero, $apuesta, $dinero, $columnas);
+            break;
 
-    if ($_POST["juego"] === "dosDocenas") {
-        if ($apuesta === "1r_2r" && (in_array($numero, $docenas["1r"]) || in_array($numero, $docenas["2r"]))) {
-            $_SESSION["saldo"] += ($dinero * 1.5);
-            $ganado = true; 
-        }
-        if ($apuesta === "2r_3r" && (in_array($numero, $docenas["2r"]) || in_array($numero, $docenas["3r"]))) {
-            $_SESSION["saldo"] += ($dinero * 1.5);
-            $ganado = true; 
-        }
-    }
+        case "dosDocenas":
+            $ganado = dosDocenas($numero, $apuesta, $dinero, $docenas);
+            break;
 
-    if ($_POST["juego"] === "dosColumnas") {
-        if ($apuesta === "1c_2c" && (in_array($numero, $columnas[1]) || in_array($numero, $columnas[2]))) {
-            $_SESSION["saldo"] += ($dinero * 1.5);
-            $ganado = true;
-        }
-        if ($apuesta === "2c_3c" && (in_array($numero, $columnas[2]) || in_array($numero, $columnas[3]))) {
-            $_SESSION["saldo"] += ($dinero * 1.5);
-            $ganado = true;
-        }
-    }
+        case "dosColumnas":
+            $ganado = dosColumnas($numero, $apuesta, $dinero, $columnas);
+            break;
 
-    if ($_POST["juego"] === "transversal") {
-        $numeros = explode("-", $apuesta);
-        if (in_array($numero, $numeros)) {
-            $_SESSION["saldo"] += ($dinero * 12);
-            $ganado = true;
-        }
-    }
+        case "transversal":
+            $ganado = transversal($numero, $apuesta, $dinero);
+            break;
 
-    if ($_POST["juego"] === "seisena") {
-        $numeros = explode("-", $apuesta);
-        if (in_array($numero, $numeros)) {
-            $_SESSION["saldo"] += ($dinero * 6);
-            $ganado = true;
-        }
-    }
+        case "seisena":
+            $ganado = seisena($numero, $apuesta, $dinero);
+            break;
 
-    if ($_POST["juego"] === "cuadro") {
-        $numeros = explode("-", $apuesta);
-        if (in_array($numero, $numeros)) {
-            $_SESSION["saldo"] += ($dinero * 9);
-            $ganado = true;
-        }
-    }
+        case "cuadro":
+            $ganado = cuadro($numero, $apuesta, $dinero);
+            break;
 
-    if ($_POST["juego"] === "caballo") {
-        $numeros = explode("-", $apuesta);
-        if (in_array($numero, $numeros)) {
-            $_SESSION["saldo"] += ($dinero * 18);
-            $ganado = true;
-        }
+        case "caballo":
+            $ganado = caballo($numero, $apuesta, $dinero);
+            break;
     }
 
 
@@ -148,7 +85,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         $mensaje = "<p class='mensaje derrota'>Has perdido {$dinero}$. Ha salido el {$numero}.</p>";
     }
+
+    
+    $apuestaMostrada = ($juego === "pleno") ? $_POST["numPleno"] : $apuesta;
+
+    $_SESSION["historial"][] = [
+        "color"   => in_array($numero, $rojo) ? "roig" : "negre",
+        "numero"  => $numero,
+        "juego"   => $juego,
+        "apuesta" => $apuestaMostrada,
+        "dinero"  => $dinero,
+        "ganado"  => $ganado,
+    ];
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -163,7 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <p>Saldo: <?= $_SESSION["saldo"] ?></p>
     <p>Numero random: <?= $numero ?></p>
     <?= $mensaje ?>
-    <img src="tapete.png" alt="" width="700">
+    <img src="tapete.png" alt="" width="700">   
+    
     <form action="index.php" method="POST">
 
         <label for="juego">Juego
@@ -283,8 +235,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
 
         <input type="submit" value="Apostar">
+         <div>
+        <h2>Historial</h2>
+        <div id="containerHistorial">
+            <?php foreach ($_SESSION["historial"] as $bola): ?>
+                <div class="itemHistorial">
+                    <div id="esfera" class="<?= $bola["color"] ?>">
+                        <p><?= $bola["numero"] ?></p>
+                    </div>
+                    <small class="juego"><?= $nombresJuego[$bola["juego"]] ?? "" ?></small>
+                    <small>Apuesta: <?= $bola["apuesta"]?></small>
+                    <small><?= $bola["dinero"] ?>$</small>
+                    <small><?= $bola["ganado"] ? "Ganado" : " Perdido" ?></small>
+                </div>
+            <?php endforeach ?>
+        </div>
+    </div>
     </form>
-    <a href="logout.php">Limpiar Session</a>
+    <a href="logout.php" id="limpiarSession">Limpiar Session</a>
     <script type="module" src="script.js"></script>
 </body>
 </html>
