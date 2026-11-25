@@ -12,6 +12,24 @@ try{
 
 $sql = "SELECT * FROM anuncis";
 $stmt = $pdo->query($sql);
+$productes = $stmt->fetchAll();
+
+
+
+
+$sql_categories= "SELECT * FROM categories";
+$stmt = $pdo->query($sql_categories);
+$categories = $stmt->fetchAll();
+
+
+
+if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["filtre"]) && $_GET["filtre"] !== ""){
+  $filtreId = $_GET["filtre"];
+  $sql_filtre = "SELECT * FROM anuncis WHERE categoria_id = $filtreId";
+  $stmt = $pdo->query($sql_filtre);
+  $productes = $stmt->fetchAll();
+
+};
 
 
 ?>
@@ -49,10 +67,20 @@ $stmt = $pdo->query($sql);
 
     <main class="wrap">
 
+    <form method="get" class="filter">
+    <select name="filtre" onchange="this.form.submit()">
+      <option value="">Todas las marcas</option>
+      <?php foreach($categories as $categorie): ?>
+        <option value="<?=$categorie["id"]?>" <?php if(isset($_GET["filtre"]) && $_GET["filtre"] == $categorie["id"]):?> selected <?php endif ?>>
+          <?= $categorie["nom"] ?>
+        </option>
+      <?php endforeach ?>
+    </select>
+    </form>
    
     <!-- ===== PRODUCTOS ===== -->
     <div class="grid">
-      <?php foreach($stmt as $anunci):?>
+      <?php foreach($productes as $anunci):?>
       <a class="card" href="product.php?id=<?=$anunci["id"]?>">
         <div class="thumb"><img src="<?= $anunci["imatge"] ?? 'images/default.png' ?>" alt="<?= $anunci["titol"] ?>"></div>
         <div class="rate">☆ <?=$anunci["puntuacio"]?></div>

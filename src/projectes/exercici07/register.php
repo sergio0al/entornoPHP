@@ -8,38 +8,44 @@ try {
     die("ERROR DE CONEXIÓN CON BBDDS: " . $e->getMessage());
 }
 
+$error = "";
 
 
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nom = $_POST["nom"];
-    $correu = $_POST["email"];
-    $password = $_POST["password"] 
-    $password_confirm = $_POST["password_confirm"];
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+  $nom = $_POST["nom"];
+  $correu = $_POST["email"];
+  $password = $_POST["password"];
+  $password_confirm = $_POST["password_confirm"];
 
-    if ($nom === "" || $correu === "" || $password === "" || $password_confirm === "") {
-        $error = "Por favor, rellena todos los campos.";
-    } elseif ($password !== $password_confirm) {
-        $error = "Las contraseñas no coinciden.";
-    } else {
-        $sql = "SELECT * FROM usuaris WHERE correu = '$correu'";
-        $stmt = $pdo->query($sql);
-        $usuari = $stmt->fetch();
 
-        if ($usuari) {
-            $error = "Este correo electrónico ya está registrado.";
-        } else {
-            $hash = password_hash($password, PASSWORD_DEFAULT);
+  if($nom === "" || $correu === "" || $password === ""  || $password_confirm === ""){
+    $error = "Porfavor, rellena todos los campos.";
+  }else if($password !== $password_confirm){
+    $error = "Las contraseñas no coinciden.";
+  }else{
+    $sql = "SELECT * FROM usuaris WHERE correu = '$correu'";
+    $stmt = $pdo->query($sql);
+    $usuari = $stmt->fetchAll();
+    
+    if($usuari){
+      $error = "El correo electronico ya esta registrado.";
+    }else{
+      $hash = password_hash($password, PASSWORD_DEFAULT);
 
-            $sql_insert = "INSERT INTO usuaris (nom, correu, contrasenya, rol) VALUES ('$nom', '$correu', '$hash', 'user')";
-            $pdo->query($sql_insert);
-            
-            $_SESSION["usuari_nom"] = $nom;
-            header("Location: index.php");
-            exit;
-        }
-    }
+      $sql_insert = "INSERT INTO usuaris (nom, correu, contrasenya, rol) VALUE ('$nom', '$correu', '$hash', 'user')";
+      $stmt = $pdo->query($sql_insert);
+
+      $_SESSION["usuari_nom"] = $nom;
+
+      header("Location: index.php");
+      exit;
+
+    };
+  };
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -74,18 +80,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <p class="auth-sub">Únete a la comunidad de Footmarts</p>
 
       <?php if ($error !== ""): ?>
-        <div class="alert-error"><?= htmlspecialchars($error) ?></div>
+        <div class="alert-error"><?= $error ?></div>
       <?php endif; ?>
 
       <form method="POST" action="register.php" class="auth-form">
         <label>
           <span>Nombre</span>
-          <input type="text" name="nom" placeholder="Tu nombre" required value="<?= htmlspecialchars($_POST['nom'] ?? '') ?>">
+          <input type="text" name="nom" placeholder="Tu nombre" required value="<?= ($_POST['nom'] ?? '') ?>">
         </label>
 
         <label>
           <span>Correo electrónico</span>
-          <input type="email" name="email" placeholder="tu@correo.com" required value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+          <input type="email" name="email" placeholder="tu@correo.com" required value="<?= ($_POST['email'] ?? '') ?>">
         </label>
 
         <label>
