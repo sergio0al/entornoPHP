@@ -60,6 +60,7 @@ if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["filtre"]) && $_GET["filt
             <div class="auth-buttons" style="gap: 20px;">
                 <p>Hola <span style="font-weight: bold; color:#ef4444;"><?= $_SESSION["usuari_nom"] ?></span>!</p>
                 <a href="logout.php" class="btn-login">Cerrar Session</a>
+                <a href="publicar.php" class="btn-login">+</a>
             </div>
             <?php endif ?>
         </div>
