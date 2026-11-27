@@ -10,6 +10,7 @@ try{
 
 
 
+
 $sql = "SELECT * FROM anuncis";
 $stmt = $pdo->query($sql);
 $productes = $stmt->fetchAll();
@@ -25,8 +26,9 @@ $categories = $stmt->fetchAll();
 
 if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["filtre"]) && $_GET["filtre"] !== ""){
   $filtreId = $_GET["filtre"];
-  $sql_filtre = "SELECT * FROM anuncis WHERE categoria_id = $filtreId";
-  $stmt = $pdo->query($sql_filtre);
+  $sql_filtre = "SELECT * FROM anuncis WHERE categoria_id = :filtreId";
+  $stmt = $pdo->prepare($sql_filtre);
+  $stmt->execute(["filtreId" => $filtreId,]);
   $productes = $stmt->fetchAll();
 
 };
@@ -82,10 +84,27 @@ if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["filtre"]) && $_GET["filt
     <!-- ===== PRODUCTOS ===== -->
     <div class="grid">
       <?php foreach($productes as $anunci):?>
+      <?php 
+
+      $user_id = $anunci["usuari_id"];
+      $sql_usuari = "SELECT * FROM usuaris WHERE id = :user_id";
+      $stmt = $pdo->prepare($sql_usuari);
+      $stmt->execute(["user_id" => $user_id]);
+      $user = $stmt->fetch();
+        
+      $categoria_id = $anunci["categoria_id"];
+      $sql_categoria = "SELECT * FROM categories WHERE id = :categoria";
+      $stmt = $pdo->prepare($sql_categoria);
+      $stmt->execute(["categoria" => $categoria_id]);
+      $categoria = $stmt->fetch();
+      
+      ?>
       <a class="card" href="product.php?id=<?=$anunci["id"]?>">
         <div class="thumb"><img src="<?= $anunci["imatge"] ?? 'images/default.png' ?>" alt="<?= $anunci["titol"] ?>"></div>
         <div class="rate">☆ <?=$anunci["puntuacio"]?></div>
-        <b><?=$anunci["titol"]?></b>
+        <p><?=$anunci["titol"]?></p>
+        <p><?= $user["nom"]?></p>
+        <p><?= $categoria["nom"]?></p>
         <span class="price"><?=$anunci["preu"]?></span>
       </a>
     <?php endforeach ?>

@@ -12,9 +12,11 @@ try {
 
 $id = isset($_GET['id']) ? $_GET['id'] : -1;
 
-$sql = "SELECT * FROM anuncis WHERE id = $id";
-$stmt = $pdo->query($sql);
-$anunci = $stmt->fetchAll();
+
+$sql = "SELECT * FROM anuncis WHERE id = :id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(["id" => $id]);
+$anunci = $stmt->fetch();
 
 if (!$anunci) {
     header("Location: index.php");
@@ -31,7 +33,7 @@ if (!$anunci) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $anunci[0]["titol"] ?> · Footmarts</title>
+  <title><?= $anunci["titol"] ?> · Footmarts</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="product-page">
@@ -62,18 +64,18 @@ if (!$anunci) {
       <!-- Columna izquierda: Imagen -->
       <div class="product-gallery">
         <div class="thumb">
-          <img src="<?= $anunci[0]["imatge"] ?? 'images/default.png' ?>" alt="<?= $anunci[0]["titol"] ?>">
+          <img src="<?= $anunci["imatge"] ?? 'images/default.png' ?>" alt="<?= $anunci["titol"] ?>">
         </div>
       </div>
 
       <!-- Columna derecha: Información -->
       <div class="product-info">
-        <div class="rate">☆ <?=$anunci[0]["puntuacio"]?></div>
-        <h1><?= $anunci[0]["titol"] ?></h1>
-        <span class="price"><?= $anunci[0]["preu"] ?> €</span>
+        <div class="rate">☆ <?=$anunci["puntuacio"]?></div>
+        <h1><?= $anunci["titol"] ?></h1>
+        <span class="price"><?= $anunci["preu"] ?> €</span>
 
         <p class="description">
-          <?= $anunci[0]["descripcio_puntuacio"] ?? 'Sin descripción disponible para este artículo.' ?>
+          <?= $anunci["descripcio_puntuacio"] ?? 'Sin descripción disponible para este artículo.' ?>
         </p>
 
        

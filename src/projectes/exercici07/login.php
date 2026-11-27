@@ -17,10 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($correu === "" || $password === "") {
         $error = "Por favor, rellena todos los campos.";
     } else {
-        $sql = "SELECT * FROM usuaris WHERE correu = '$correu'";
-        $stmt = $pdo->query($sql);
+        $sql = "SELECT * FROM usuaris WHERE correu = :correu";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(["correu" => $correu]);
+
         $usuari = $stmt->fetch();
 
+    
         if ($usuari && password_verify($password, $usuari["contrasenya"])) {
             $_SESSION["usuari_id"] = $usuari["id"];
             $_SESSION["usuari_nom"] = $usuari["nom"];
